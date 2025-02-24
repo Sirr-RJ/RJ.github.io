@@ -5,10 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>𝗠𝗲 𝗧𝗵𝗲 𝗥𝗝 ⚚</title>
     <style>
-        body { text-align: center; font-family: Arial, sans-serif; margin: 50px; }
-        h1 { color: #007bff; margin-top: 20px; }
+        body { 
+            text-align: center; 
+            font-family: Arial, sans-serif; 
+            margin: 50px; 
+            background: linear-gradient(45deg, #1e3c72, #2a5298); 
+            color: white;
+        }
+        h1 { color: #ffcc00; margin-top: 20px; }
         p { font-size: 18px; }
-        img { width: 200px; border-radius: 10px; margin-top: 20px; }
+        .highlight { color: #ff4444; font-weight: bold; } 
+        img { width: 200px; border-radius: 10px; margin-top: 20px; box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.5); }
         .btn {
             display: inline-block;
             padding: 10px 20px;
@@ -20,9 +27,10 @@
             color: white;
             border: none;
             cursor: pointer;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
         }
-        .telegram { background-color: #007bff; } /* Blue */
-        .song { background-color: #28a745; } /* Green */
+        .telegram { background-color: #007bff; } 
+        .song { background-color: #28a745; } 
     </style>
 </head>
 <body>
@@ -32,11 +40,33 @@
 
     <!-- ✅ Caption -->
     <h1>🎭 A Fake Person :)</h1>
-    <p>[ʜᴀᴠᴇɴ'ᴛ ᴀ ꜱɪɴɢʟᴇ ꜰᴜᴄᴋɪɴɢ ᴡᴇᴀᴋɴᴇꜱꜱ]</p>
+    <p class="highlight">[ʜᴀᴠᴇɴ'ᴛ ᴀ ꜱɪɴɢʟᴇ ꜰᴜᴄᴋɪɴɢ ᴡᴇᴀᴋɴᴇꜱꜱ]</p>
 
     <!-- ✅ Buttons -->
     <a href="https://t.me/yourtelegram" class="btn telegram">Telegram</a>
-    <a href="mysong.mp3" class="btn song" download>Download Song</a>
+    <button class="btn song" onclick="toggleSong()">🎵 Play Song</button>
+
+    <!-- ✅ Hidden Audio Player -->
+    <audio id="myAudio">
+        <source src="mysong.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- ✅ JavaScript to Toggle Play/Pause -->
+    <script>
+        function toggleSong() {
+            var audio = document.getElementById("myAudio");
+            var button = document.querySelector(".song");
+
+            if (audio.paused) {
+                audio.play();
+                button.innerHTML = "⏸ Pause Song"; // Button text change
+            } else {
+                audio.pause();
+                button.innerHTML = "🎵 Play Song"; // Button text back to Play
+            }
+        }
+    </script>
 
 </body>
 </html>
