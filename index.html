@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>𝗠𝗲 𝗧𝗵𝗲 𝗥𝗝 ⚚</title>
     <style>
-        /* ✅ Background Bubbles */
+        /* ✅ Background with Flowing Bubbles */
         body {
             text-align: center; 
             font-family: Arial, sans-serif; 
@@ -15,7 +15,7 @@
             overflow: hidden;
             position: relative;
         }
-        /* ✅ Animated Bubbles */
+        /* ✅ Animated Flowing Bubbles */
         .bubbles {
             position: fixed;
             width: 100%;
@@ -27,50 +27,57 @@
         .bubble {
             position: absolute;
             bottom: -50px;
-            width: 50px;
-            height: 50px;
+            width: 80px;
+            height: 80px;
             background: rgba(255, 255, 255, 0.2);
             border-radius: 50%;
-            animation: rise 10s infinite ease-in-out;
+            animation: flow 10s infinite linear;
         }
-        /* ✅ Different Sizes & Positions */
-        .bubble:nth-child(1) { width: 80px; height: 80px; left: 5%; animation-duration: 12s; }
-        .bubble:nth-child(2) { width: 100px; height: 100px; left: 25%; animation-duration: 15s; }
-        .bubble:nth-child(3) { width: 60px; height: 60px; left: 50%; animation-duration: 10s; }
-        .bubble:nth-child(4) { width: 90px; height: 90px; left: 75%; animation-duration: 13s; }
-        .bubble:nth-child(5) { width: 120px; height: 120px; left: 90%; animation-duration: 16s; }
+        /* ✅ Different Sizes & Random Movements */
+        .bubble:nth-child(1) { left: 5%; animation-duration: 12s; animation-delay: 2s; }
+        .bubble:nth-child(2) { left: 25%; animation-duration: 15s; animation-delay: 4s; }
+        .bubble:nth-child(3) { left: 50%; animation-duration: 10s; animation-delay: 1s; }
+        .bubble:nth-child(4) { left: 75%; animation-duration: 13s; animation-delay: 3s; }
+        .bubble:nth-child(5) { left: 90%; animation-duration: 16s; animation-delay: 5s; }
 
-        /* ✅ Bubble Animation */
-        @keyframes rise {
-            0% { transform: translateY(0); opacity: 1; }
-            50% { opacity: 0.8; }
-            100% { transform: translateY(-100vh); opacity: 0; }
+        /* ✅ Flowing Animation */
+        @keyframes flow {
+            0% { transform: translateY(0) translateX(0); opacity: 1; }
+            25% { transform: translateY(-50vh) translateX(30px); }
+            50% { transform: translateY(-100vh) translateX(-30px); opacity: 0.8; }
+            75% { transform: translateY(-150vh) translateX(30px); }
+            100% { transform: translateY(-200vh) translateX(-30px); opacity: 0; }
         }
 
+        /* ✅ Main Styling */
         h1 { color: #ffcc00; margin-top: 20px; }
         p { font-size: 18px; }
         .highlight { color: #ff4444; font-weight: bold; }
-        img { width: 200px; border-radius: 10px; margin-top: 20px; box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.5); }
+        img { width: 250px; border-radius: 10px; margin-top: 20px; box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.5); }
+
+        /* ✅ Buttons */
         .btn {
-            display: inline-block;
-            padding: 10px 20px;
+            display: block;
+            width: 200px;
+            padding: 12px;
             font-size: 18px;
             font-weight: bold;
             text-decoration: none;
             border-radius: 5px;
-            margin: 15px 0;
+            margin: 10px auto;
             color: white;
             border: none;
             cursor: pointer;
             box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
         }
+        .instagram { background: linear-gradient(45deg, #f9ce34, #ee2a7b, #6228d7); } 
         .telegram { background-color: #007bff; } 
         .song { background-color: #28a745; } 
     </style>
 </head>
 <body>
 
-    <!-- ✅ Background Animated Bubbles -->
+    <!-- ✅ Flowing Bubbles Background -->
     <div class="bubbles">
         <div class="bubble"></div>
         <div class="bubble"></div>
@@ -86,9 +93,10 @@
     <h1>🎭 A Fake Person :)</h1>
     <p class="highlight">[ʜᴀᴠᴇɴ'ᴛ ᴀ ꜱɪɴɢʟᴇ ꜰᴜᴄᴋɪɴɢ ᴡᴇᴀᴋɴᴇꜱꜱ]</p>
 
-    <!-- ✅ Buttons (Telegram Upar, Song Neeche) -->
+    <!-- ✅ Buttons (Proper Order) -->
+    <a href="http://instagram.com/Sirr_RJ" class="btn instagram">Instagram</a>
     <a href="https://t.me/Mrityu9" class="btn telegram">Telegram</a>
-    <button class="btn song" onclick="toggleSong()">Song</button>
+    <button class="btn song" onclick="toggleSong()">My Song</button>
 
     <!-- ✅ Hidden Audio Player -->
     <audio id="myAudio">
@@ -104,13 +112,13 @@
 
             if (audio.paused) {
                 audio.play();
-                button.innerHTML = "Song"; // Button text change
+                button.innerHTML = "Stop Song"; // Button text change
             } else {
                 audio.pause();
-                button.innerHTML = "Song"; // Button text back to Play
+                button.innerHTML = "My Song"; // Button text back to Play
             }
         }
     </script>
 
 </body>
-</html>
+                                                                   </html>
