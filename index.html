@@ -5,16 +5,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>𝗠𝗲 𝗧𝗵𝗲 𝗥𝗝 ⚚</title>
     <style>
-        body { 
+        /* ✅ Background Bubbles */
+        body {
             text-align: center; 
             font-family: Arial, sans-serif; 
             margin: 50px; 
             background: linear-gradient(45deg, #1e3c72, #2a5298); 
             color: white;
+            overflow: hidden;
+            position: relative;
         }
+        /* ✅ Animated Bubbles */
+        .bubbles {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+        .bubble {
+            position: absolute;
+            bottom: -50px;
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            animation: rise 10s infinite ease-in-out;
+        }
+        /* ✅ Different Sizes & Positions */
+        .bubble:nth-child(1) { width: 80px; height: 80px; left: 5%; animation-duration: 12s; }
+        .bubble:nth-child(2) { width: 100px; height: 100px; left: 25%; animation-duration: 15s; }
+        .bubble:nth-child(3) { width: 60px; height: 60px; left: 50%; animation-duration: 10s; }
+        .bubble:nth-child(4) { width: 90px; height: 90px; left: 75%; animation-duration: 13s; }
+        .bubble:nth-child(5) { width: 120px; height: 120px; left: 90%; animation-duration: 16s; }
+
+        /* ✅ Bubble Animation */
+        @keyframes rise {
+            0% { transform: translateY(0); opacity: 1; }
+            50% { opacity: 0.8; }
+            100% { transform: translateY(-100vh); opacity: 0; }
+        }
+
         h1 { color: #ffcc00; margin-top: 20px; }
         p { font-size: 18px; }
-        .highlight { color: #ff4444; font-weight: bold; } 
+        .highlight { color: #ff4444; font-weight: bold; }
         img { width: 200px; border-radius: 10px; margin-top: 20px; box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.5); }
         .btn {
             display: inline-block;
@@ -23,7 +58,7 @@
             font-weight: bold;
             text-decoration: none;
             border-radius: 5px;
-            margin: 10px;
+            margin: 15px 0;
             color: white;
             border: none;
             cursor: pointer;
@@ -35,16 +70,25 @@
 </head>
 <body>
 
-    <!-- ✅ Photo (Sabse Upar) -->
+    <!-- ✅ Background Animated Bubbles -->
+    <div class="bubbles">
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+    </div>
+
+    <!-- ✅ Photo -->
     <img src="myphoto.jpg" alt="Meri Photo">
 
     <!-- ✅ Caption -->
     <h1>🎭 A Fake Person :)</h1>
     <p class="highlight">[ʜᴀᴠᴇɴ'ᴛ ᴀ ꜱɪɴɢʟᴇ ꜰᴜᴄᴋɪɴɢ ᴡᴇᴀᴋɴᴇꜱꜱ]</p>
 
-    <!-- ✅ Buttons -->
+    <!-- ✅ Buttons (Telegram Upar, Song Neeche) -->
     <a href="https://t.me/Mrityu9" class="btn telegram">Telegram</a>
-    <button class="btn song" onclick="toggleSong()">🎵 Play Song</button>
+    <button class="btn song" onclick="toggleSong()">Song</button>
 
     <!-- ✅ Hidden Audio Player -->
     <audio id="myAudio">
