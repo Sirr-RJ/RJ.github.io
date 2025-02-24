@@ -15,6 +15,7 @@
             overflow: hidden;
             position: relative;
         }
+
         /* ✅ Animated Flowing Bubbles */
         .bubbles {
             position: fixed;
@@ -33,14 +34,12 @@
             border-radius: 50%;
             animation: flow 10s infinite linear;
         }
-        /* ✅ Different Sizes & Random Movements */
         .bubble:nth-child(1) { left: 5%; animation-duration: 12s; animation-delay: 2s; }
         .bubble:nth-child(2) { left: 25%; animation-duration: 15s; animation-delay: 4s; }
         .bubble:nth-child(3) { left: 50%; animation-duration: 10s; animation-delay: 1s; }
         .bubble:nth-child(4) { left: 75%; animation-duration: 13s; animation-delay: 3s; }
         .bubble:nth-child(5) { left: 90%; animation-duration: 16s; animation-delay: 5s; }
 
-        /* ✅ Flowing Animation */
         @keyframes flow {
             0% { transform: translateY(0) translateX(0); opacity: 1; }
             25% { transform: translateY(-50vh) translateX(30px); }
@@ -53,7 +52,7 @@
         h1 { color: #ffcc00; margin-top: 20px; }
         p { font-size: 18px; }
         .highlight { color: #ff4444; font-weight: bold; }
-        img { width: 250px; border-radius: 10px; margin-top: 20px; box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.5); }
+        img { width: 300px; border-radius: 10px; margin-top: 20px; box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.5); }
 
         /* ✅ Buttons */
         .btn {
@@ -69,7 +68,9 @@
             border: none;
             cursor: pointer;
             box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+            transition: transform 0.2s ease-in-out;
         }
+        .btn:hover { transform: scale(1.1); } /* ✅ Pop-up effect on tap */
         .instagram { background: linear-gradient(45deg, #f9ce34, #ee2a7b, #6228d7); } 
         .telegram { background-color: #007bff; } 
         .song { background-color: #28a745; } 
@@ -93,7 +94,7 @@
     <h1>🎭 A Fake Person :)</h1>
     <p class="highlight">[ʜᴀᴠᴇɴ'ᴛ ᴀ ꜱɪɴɢʟᴇ ꜰᴜᴄᴋɪɴɢ ᴡᴇᴀᴋɴᴇꜱꜱ]</p>
 
-    <!-- ✅ Buttons (Proper Order) -->
+    <!-- ✅ Buttons -->
     <a href="http://instagram.com/Sirr_RJ" class="btn instagram">Instagram</a>
     <a href="https://t.me/Mrityu9" class="btn telegram">Telegram</a>
     <button class="btn song" onclick="toggleSong()">My Song</button>
@@ -115,10 +116,10 @@
                 button.innerHTML = "Stop Song"; // Button text change
             } else {
                 audio.pause();
-                button.innerHTML = "My Song"; // Button text back to Play
+                button.innerHTML = "🎵 My Song"; // Button text back to Play
             }
         }
     </script>
 
 </body>
-                                                                   </html>
+        </html>
